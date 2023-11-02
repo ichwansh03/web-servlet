@@ -16,6 +16,9 @@ Servlet itu spesifikasi ([link spesifikasi](https://jcp.org/en/jsr/detail?id=340
 - dll
 
 * Jika ingin membuat web server di java, pada spring init pilih war (web archive) sebagai packaging dan tambahkan dependency spring web.
+* Interface `Servlet` docs: [see documentation](https://tomcat.apache.org/tomcat-7.0-doc/servletapi/javax/servlet/Servlet.html)
+* Pada file `pom.xml` dan ketika menjalankan perintah `mvn package` untuk archive project, hapus `<build>` tag agar tidak ada ketergantungan dengan main class. 
+* Setelah menjalankan perintah maven package, akan otomatis muncul file `D:\servlet\servlet\target\servlet-0.0.1-SNAPSHOT.war`. File war tersebut pindahkan ke direktori `webapps` dan rename nama folder agar lebih singkat. akses project dengan `localhost:8080/nama-folder/endpoint`
 
 ## Installation
 
