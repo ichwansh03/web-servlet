@@ -30,4 +30,29 @@ public class TodoListServlet extends HttpServlet {
             resp.getWriter().println("todo parameter must exists");
         }
     }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int index = Integer.parseInt(req.getParameter("index"));
+        String updateTodo = req.getParameter("todo");
+
+        if (index >= 0 && index < todos.size() && updateTodo != null && !updateTodo.isEmpty()){
+            todos.set(index, updateTodo);
+            resp.getWriter().println("todo updated at "+index+" : "+updateTodo);
+        } else {
+            resp.getWriter().println("invalid updated");
+        }
+    }
+
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int index = Integer.parseInt(req.getParameter("index"));
+
+        if (index >= 0 && index < todos.size()){
+            String remove = todos.remove(index);
+            resp.getWriter().println("todo deleted at index "+index+" : "+remove);
+        } else {
+            resp.getWriter().println("invalid deleted");
+        }
+    }
 }
